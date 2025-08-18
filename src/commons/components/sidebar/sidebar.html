@@ -1,0 +1,26 @@
+<div class="{{this.status()}} sidebar">
+  <button (click)="handle()" type="button" class="icon-chevrons-left text-sm"></button>
+  <div class="header">
+    <div>
+      <img src="{{this.icon}}" alt="app icon" width="{64}" height="{64}">
+    </div>
+    <h3 class="font-semibold font-jetbrains text-2xl italic capitalize">{{this.title}}</h3>
+  </div>
+  <ul class="body">
+    @for (item of items; track $index){
+    <li class="font-jetbrains">
+      <h4 class="font-light text-sm capitalize">{{item.name}}</h4>
+      <ul>
+        @for (element of item.items; track $index){
+        <li>
+          <a href="{{item.basePath}}/{{element.path}}" target="_self">
+            <i class="{{element.icon}} text-lg"></i>
+            <h5 class="font-light text-sm capitalize">{{element.label}}</h5>
+          </a>
+        </li>
+        }
+      </ul>
+    </li>
+    }
+  </ul>
+</div>

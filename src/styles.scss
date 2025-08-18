@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@use "./commons/styles/reset.scss";
+@use "./commons/styles/theme.scss";
+@use "./commons/styles/text.scss";
+@use "./commons/styles/font-width.scss";
+@use "./commons/styles/fonts.scss";
+@use 'lucide-static/font/lucide.css';
+
+:root {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+}
