@@ -13,7 +13,7 @@
       <ul>
         @for (element of item.items; track $index){
         <li>
-          <a href="{{item.basePath}}/{{element.path}}" target="_self">
+          <a [href]="item.basePath + element.path" target="_self" [class.active-path]="activePath() === (item.basePath + element.path)">
             <i class="{{element.icon}} text-lg"></i>
             <h5 class="font-light text-sm capitalize">{{element.label}}</h5>
           </a>

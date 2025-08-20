@@ -68,6 +68,12 @@
   }
 }
 
+.active-path {
+  background: var(--color-border)/80 !important;
+  border: 1px solid slateblue !important;
+}
+
+
 .body {
   display: flex;
   flex-direction: column;
