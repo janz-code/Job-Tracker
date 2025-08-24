@@ -1,16 +1,76 @@
+@keyframes close {
+  0% {
+    width: 15dvw;
+  }
+  100% {
+    width: 68px;
+  }
+}
+
+.aux {
+  height: 100dvh;
+  animation-name: close;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  transition: ease-in-out 500ms all;
+  &:not(.hidde){
+    min-width: calc(15dvw + 8px);
+    width: calc(15dvw + 8px);
+  }
+  &:has(.hidde){
+    min-width: calc(15dvw + 8px);
+    width: 68px;
+  }
+}
+
 .close {
-  translate: -100%;
+  width: 60px;
+  &.sidebar{
+  }
+  > .header {
+    > h3{
+      display: none;
+    }
+  }
+  > .body{
+    > li {
+      > h4{
+        display: none;
+      }
+    }
+  }
+  .item{
+    padding: 5px 10px;
+    > h5 {
+      display: none;
+    }
+  }
 }
 
 .open {
-  translate: 0%;
+  width: 15dvw;
+  >.body{
+    >li{
+      width: 100%;
+      .item{
+        overflow-x: hidden;
+        padding: 5px 20px;
+        > h5{
+          text-overflow-ellipsis: inherit;
+        }
+      }
+    }
+  }
 }
 
 .sidebar {
-  position: relative;
-  transition: ease-in-out 500ms;
-  width: 15dvw;
-  height: 100dvh;
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  height: calc(100% - 16px);
+  border-radius: 10px;
+  transition: ease-in-out 500ms all;
   background: var(--color-surface);
   border: 2px solid var(--color-border);
   display: flex;
@@ -21,6 +81,7 @@
   >button {
     position: absolute;
     right: -40px;
+    top: 0;
     border: 1px solid var(--color-border);
     border-radius: 8px;
     padding: 2px 6px;
@@ -73,10 +134,12 @@
   border: 1px solid slateblue !important;
 }
 
-
 .body {
   display: flex;
   flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
   gap: 20px;
 
   >li {
@@ -89,27 +152,23 @@
       flex-direction: column;
       gap: 10px;
       padding: 0 10px;
-
-      >li {
-        >a {
-          border: 1px solid var(--color-border);
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          padding: 2px 16px;
-          background: var(--color-bg);
-          border-radius: 12px;
-          text-decoration: none;
-          color: inherit;
-          outline: none;
-
-          &:hover {
-            background: var(--color-border)/80;
-            border: 1px solid var(--color-border-focus);
-            cursor: pointer;
-          }
-        }
-      }
     }
+  }
+}
+.item {
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-bg);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+
+  &:hover {
+    background: var(--color-border)/80;
+    border: 1px solid var(--color-border-focus);
+    cursor: pointer;
   }
 }

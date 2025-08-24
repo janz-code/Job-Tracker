@@ -1,5 +1,11 @@
 main {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  >div{
+    display: flex;
+    flex-direction: column;
+    padding: 14px 12px;
+    transition: ease-in-out 500ms all;
+    width: 100%;
+  }
 }
